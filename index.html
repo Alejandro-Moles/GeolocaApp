@@ -44,8 +44,7 @@
             //esto es para el texto
             crearTexto(modelos[i].texto)
 
-            var scene = document.querySelector('a-scene');
-            scene.appendChild(modelo);
+            
         }
     }
 
@@ -53,7 +52,9 @@
     function crearTexto(text){
         var modeloTexto = document.createElement('a-text');
         modeloTexto.setAttribute('value', + text);
-        
+      
+        var scene = document.querySelector('a-scene');
+        scene.appendChild(modeloTexto);
     }
 
     function crearImagen(imagen){
