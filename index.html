@@ -23,7 +23,7 @@
     window.onload = ()=>
     {
         cargarModelos();
-        console.log("patata");
+        
     }
 
     function cargarModelos(){
@@ -56,6 +56,9 @@
         modeloTexto.setAttribute('scale', '0.5 0.5 0.5');
         modeloTexto.setAttribute('gps-entity-place', `latitude: $latitud; longitude: $longitud;`);
       
+      
+        console.log($latitud);
+        console.log($longitud);
         var scene = document.querySelector('a-scene');
         scene.appendChild(modeloTexto);
     }
