@@ -43,16 +43,18 @@
         
         for (var i = 0; i < modelos.length; i++){
             //esto es para el texto
-            crearTexto(modelos[i].texto)
+            crearTexto(${modelos[i].texto}, ${modelos[i].latitud}, ${modelos[i].longitud})
 
             
         }
     }
 
     //funcion que crea el texto
-    function crearTexto(text){
+    function crearTexto(text, latitud, longitud){
         var modeloTexto = document.createElement('a-text');
-        modeloTexto.setAttribute('value', text);
+        modeloTexto.setAttribute('value', $text);
+        modeloTexto.setAttribute('scale', '0.5 0.5 0.5');
+        modeloTexto.setAttribute('gps-entity-place', `latitude: $latitud; longitude: $longitud;`);
       
         var scene = document.querySelector('a-scene');
         scene.appendChild(modeloTexto);
