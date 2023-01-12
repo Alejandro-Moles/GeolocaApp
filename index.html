@@ -36,7 +36,7 @@
                 //aqui va la ruta de la imagen
                 imagen: "https://res.cloudinary.com/hello-tickets/image/upload/c_limit,f_auto,q_auto,w_1300/v1624372525/cb8fyeobqwc3vizrn2gh.jpg",
                 //aqui va la ruta del video
-                video: "a-video"
+                video: "https://www.youtube.com/watch?v=4dNiueKSM9I"
             }
         ];
 
@@ -45,7 +45,7 @@
             //esto es para el texto
             crearTexto(modelos[i].texto, modelos[i].latitud, modelos[i].longitud)
             crearImagen(modelos[i].imagen, modelos[i].latitud, modelos[i].longitud)
-            
+            crearVideo(modelos[i].video, modelos[i].latitud, modelos[i].longitud)
         }
     }
 
@@ -76,8 +76,16 @@
     }
 
     //funcion que crea el video
-    function crearVideo(video){
-        
+    function crearVideo(video, latitud, longitud){
+        var modeloVideo = document.createElement("a-video");
+        modeloVideo.setAttribute('src', video);
+        modeloVideo.setAttribute('scale', '0.5 0.5 0.5');
+        modeloVideo.setAttribute('position', '90 0 0');
+        modeloVideo.setAttribute('gps-entity-place', `latitude: $latitud; longitude: $longitud;`);
+      
+        console.log(video);
+        var scene = document.querySelector('a-scene');
+        modeloVideo.appendChild(modeloVideo);
     }
   
   </script>
