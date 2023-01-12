@@ -32,9 +32,9 @@
                 latitud: 37.191121, 
                 longitud: -3.623371,
                 //aqui va el texto
-                texto: "Texto de Prueba",
+                texto: "Alhambra",
                 //aqui va la ruta de la imagen
-                imagen: "a-image",
+                imagen: "https://res.cloudinary.com/hello-tickets/image/upload/c_limit,f_auto,q_auto,w_1300/v1624372525/cb8fyeobqwc3vizrn2gh.jpg",
                 //aqui va la ruta del video
                 video: "a-video"
             }
@@ -44,7 +44,7 @@
         for (var i = 0; i < modelos.length; i++){
             //esto es para el texto
             crearTexto(modelos[i].texto, modelos[i].latitud, modelos[i].longitud)
-
+            crearImagen(modelos[i].imagen, modelos[i].latitud, modelos[i].longitud)
             
         }
     }
@@ -56,8 +56,7 @@
         modeloTexto.setAttribute('value', text);
         modeloTexto.setAttribute('scale', '0.5 0.5 0.5');
         modeloTexto.setAttribute('gps-entity-place', `latitude: $latitud; longitude: $longitud;`);
-      
-      
+    
         console.log(latitud);
         console.log(longitud);
         var scene = document.querySelector('a-scene');
@@ -65,8 +64,15 @@
     }
 
     //funcion que crea la imagen
-    function crearImagen(imagen){
-       
+    function crearImagen(imagen, latitud, longitud){
+       var modeloImagen = document.createElement("a-imagen");
+       modeloImagen.setAttribute('src', imagen);
+       modeloImagen.setAttribute('scale', '0.5 0.5 0.5');
+       modeloImagen.setAttribute('gps-entity-place', `latitude: $latitud; longitude: $longitud;`);
+      
+       console.log(imagen);
+       var scene = document.querySelector('a-scene');
+       scene.appendChild(modeloImagen);
     }
 
     //funcion que crea el video
